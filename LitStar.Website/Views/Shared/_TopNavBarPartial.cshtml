@@ -1,0 +1,65 @@
+﻿@using LitStar.Controllers.ViewModels
+@using LitStar.Core.Security
+@model TopNavBarView
+
+<div id="top">
+    <div class="top-wrapper">
+        <a href="/" title="">
+            <img src="/images/litstartiny.png" class="logo" alt="" />
+        </a>
+        <ul class="topnav">
+            <li class="topuser">
+                <a title="" data-toggle="dropdown">
+                    <img src="@Model.SelectedUser.AvatarPath" height="25px" width="25px" alt="" />
+                    <span>@Model.SelectedUser.FirstName @Model.SelectedUser.LastName</span>
+                    <i class="caret"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#" title="">
+                            <span class="user-profile"></span>My profile
+                        </a>
+                    </li>
+                    <li><a href="#" title=""><span class="user-messages"></span>Messages <strong>2</strong></a></li>
+                    <li><a href="#" title=""><span class="user-settings"></span>Settings</a></li>
+                    <li>
+                        @Html.ActionLink("Logout", "SignOut", "Login", null, new { @class = "user-logout", title="Logout", alt="Logout"})
+                        @*<a href="#" title="">
+                            <span class="user-logout"></span>Logout
+                        </a>*@
+
+                    </li>
+                </ul>
+            </li>
+            @*<li>
+                <a href="#" title="">
+                    <b class="settings"></b>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <b class="mail"></b>
+                </a>
+            </li>
+            <li class="search">
+                <a title="">
+                    <b class="search"></b>
+                </a>
+                <form class="top-search" action="#">
+                    <input type="text" placeholder="Search..." />
+                    <input type="submit" value="" />
+                </form>
+            </li>*@
+            <li class="sidebar-button">
+                <a href="#" title="">
+                    <b class="responsive-nav"></b>
+                </a>
+            </li>
+            <li>
+                <a href="@Url.Action("SignOut", "Login")" title="Logout">
+                    <b class="logout"></b>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

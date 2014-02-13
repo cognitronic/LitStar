@@ -1,0 +1,146 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Website", "LitStar.Website\LitStar.Website.csproj", "{DFC7B1E3-9BBC-4DC8-B940-B377525519F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Website.Tests", "LitStar.Website.Tests\LitStar.Website.Tests.csproj", "{BC6C1555-C67F-4F17-BB87-692D3F482506}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Core", "LitStar.Core\LitStar.Core.csproj", "{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Services", "LitStar.Services\LitStar.Services.csproj", "{493E984E-4D03-4E3E-B15B-A4765A266A41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Core.Tests", "LitStar.Core.Tests\LitStar.Core.Tests.csproj", "{FC510299-5100-440F-99AF-3B5DE7951A3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Infrastructure", "LitStar.Infrastructure\LitStar.Infrastructure.csproj", "{38124E93-2AF5-4499-AC3E-AB4F98135398}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Repository.NHibernate", "LitStar.Repository.NHibernate\LitStar.Repository.NHibernate.csproj", "{F523341B-45EE-488F-9AA4-C4E9D1D45D04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Couchbase", "LitStar.Couchbase\LitStar.Couchbase.csproj", "{4A118672-902A-4DFE-B542-D192F0FB2027}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Services.Cache", "LitStar.Services.Cache\LitStar.Services.Cache.csproj", "{424D54CA-6F78-42FF-B0F4-23B93E258705}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Couchbase.Tests", "LitStar.Couchbase.Tests\LitStar.Couchbase.Tests.csproj", "{31B73CA0-527D-4A14-B9AA-088DB6F96C7C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Services.Tests", "LitStar.Services.Tests\LitStar.Services.Tests.csproj", "{3D780B60-45F4-47DB-B5CC-24746BBA9FA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Controllers", "LitStar.Controllers\LitStar.Controllers.csproj", "{9E125A02-2525-4818-B28C-48580D6CE347}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.NHibernate.Tests", "LitStar.NHibernate.Tests\LitStar.NHibernate.Tests.csproj", "{8303B53C-32F7-4E15-AA5D-58B0A66F8C2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LitStar.Web", "LitStar.Web\LitStar.Web.csproj", "{59B53EFD-C51A-4ADB-9F08-B36FFD1B2118}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 15
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://www.swoontree.com:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = LitStar.Infrastructure\\LitStar.Infrastructure.csproj
+		SccProjectName1 = LitStar.Infrastructure
+		SccLocalPath1 = LitStar.Infrastructure
+		SccProjectUniqueName2 = LitStar.Website\\LitStar.Website.csproj
+		SccProjectName2 = LitStar.Website
+		SccLocalPath2 = LitStar.Website
+		SccProjectUniqueName3 = LitStar.Website.Tests\\LitStar.Website.Tests.csproj
+		SccProjectName3 = LitStar.Website.Tests
+		SccLocalPath3 = LitStar.Website.Tests
+		SccProjectUniqueName4 = LitStar.Core\\LitStar.Core.csproj
+		SccProjectName4 = LitStar.Core
+		SccLocalPath4 = LitStar.Core
+		SccProjectUniqueName5 = LitStar.Core.Tests\\LitStar.Core.Tests.csproj
+		SccProjectName5 = LitStar.Core.Tests
+		SccLocalPath5 = LitStar.Core.Tests
+		SccProjectUniqueName6 = LitStar.Services.Cache\\LitStar.Services.Cache.csproj
+		SccProjectName6 = LitStar.Services.Cache
+		SccLocalPath6 = LitStar.Services.Cache
+		SccProjectUniqueName7 = LitStar.Services.Tests\\LitStar.Services.Tests.csproj
+		SccProjectName7 = LitStar.Services.Tests
+		SccLocalPath7 = LitStar.Services.Tests
+		SccProjectUniqueName8 = LitStar.NHibernate.Tests\\LitStar.NHibernate.Tests.csproj
+		SccProjectName8 = LitStar.NHibernate.Tests
+		SccLocalPath8 = LitStar.NHibernate.Tests
+		SccProjectUniqueName9 = LitStar.Couchbase.Tests\\LitStar.Couchbase.Tests.csproj
+		SccProjectName9 = LitStar.Couchbase.Tests
+		SccLocalPath9 = LitStar.Couchbase.Tests
+		SccProjectUniqueName10 = LitStar.Couchbase\\LitStar.Couchbase.csproj
+		SccProjectName10 = LitStar.Couchbase
+		SccLocalPath10 = LitStar.Couchbase
+		SccProjectUniqueName11 = LitStar.Controllers\\LitStar.Controllers.csproj
+		SccProjectName11 = LitStar.Controllers
+		SccLocalPath11 = LitStar.Controllers
+		SccProjectUniqueName12 = LitStar.Services\\LitStar.Services.csproj
+		SccProjectName12 = LitStar.Services
+		SccLocalPath12 = LitStar.Services
+		SccProjectUniqueName13 = LitStar.Web\\LitStar.Web.csproj
+		SccProjectName13 = LitStar.Web
+		SccLocalPath13 = LitStar.Web
+		SccProjectUniqueName14 = LitStar.Repository.NHibernate\\LitStar.Repository.NHibernate.csproj
+		SccProjectName14 = LitStar.Repository.NHibernate
+		SccLocalPath14 = LitStar.Repository.NHibernate
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFC7B1E3-9BBC-4DC8-B940-B377525519F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFC7B1E3-9BBC-4DC8-B940-B377525519F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFC7B1E3-9BBC-4DC8-B940-B377525519F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFC7B1E3-9BBC-4DC8-B940-B377525519F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC6C1555-C67F-4F17-BB87-692D3F482506}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC6C1555-C67F-4F17-BB87-692D3F482506}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC6C1555-C67F-4F17-BB87-692D3F482506}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC6C1555-C67F-4F17-BB87-692D3F482506}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{493E984E-4D03-4E3E-B15B-A4765A266A41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{493E984E-4D03-4E3E-B15B-A4765A266A41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{493E984E-4D03-4E3E-B15B-A4765A266A41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{493E984E-4D03-4E3E-B15B-A4765A266A41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC510299-5100-440F-99AF-3B5DE7951A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC510299-5100-440F-99AF-3B5DE7951A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC510299-5100-440F-99AF-3B5DE7951A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC510299-5100-440F-99AF-3B5DE7951A3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38124E93-2AF5-4499-AC3E-AB4F98135398}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38124E93-2AF5-4499-AC3E-AB4F98135398}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38124E93-2AF5-4499-AC3E-AB4F98135398}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38124E93-2AF5-4499-AC3E-AB4F98135398}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F523341B-45EE-488F-9AA4-C4E9D1D45D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F523341B-45EE-488F-9AA4-C4E9D1D45D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F523341B-45EE-488F-9AA4-C4E9D1D45D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F523341B-45EE-488F-9AA4-C4E9D1D45D04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A118672-902A-4DFE-B542-D192F0FB2027}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A118672-902A-4DFE-B542-D192F0FB2027}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A118672-902A-4DFE-B542-D192F0FB2027}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A118672-902A-4DFE-B542-D192F0FB2027}.Release|Any CPU.Build.0 = Release|Any CPU
+		{424D54CA-6F78-42FF-B0F4-23B93E258705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{424D54CA-6F78-42FF-B0F4-23B93E258705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{424D54CA-6F78-42FF-B0F4-23B93E258705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{424D54CA-6F78-42FF-B0F4-23B93E258705}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31B73CA0-527D-4A14-B9AA-088DB6F96C7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31B73CA0-527D-4A14-B9AA-088DB6F96C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31B73CA0-527D-4A14-B9AA-088DB6F96C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31B73CA0-527D-4A14-B9AA-088DB6F96C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D780B60-45F4-47DB-B5CC-24746BBA9FA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D780B60-45F4-47DB-B5CC-24746BBA9FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D780B60-45F4-47DB-B5CC-24746BBA9FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D780B60-45F4-47DB-B5CC-24746BBA9FA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E125A02-2525-4818-B28C-48580D6CE347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E125A02-2525-4818-B28C-48580D6CE347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E125A02-2525-4818-B28C-48580D6CE347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E125A02-2525-4818-B28C-48580D6CE347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8303B53C-32F7-4E15-AA5D-58B0A66F8C2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8303B53C-32F7-4E15-AA5D-58B0A66F8C2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8303B53C-32F7-4E15-AA5D-58B0A66F8C2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8303B53C-32F7-4E15-AA5D-58B0A66F8C2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59B53EFD-C51A-4ADB-9F08-B36FFD1B2118}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59B53EFD-C51A-4ADB-9F08-B36FFD1B2118}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59B53EFD-C51A-4ADB-9F08-B36FFD1B2118}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59B53EFD-C51A-4ADB-9F08-B36FFD1B2118}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

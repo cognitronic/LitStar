@@ -1,0 +1,23 @@
+﻿@model LitStar.Controllers.ViewModels.UserAccount.UserAccountView
+
+@{
+    ViewBag.Title = "LogOn";
+}
+
+<h2>LogOn</h2>
+@if (Model.HasIssue)
+{ 
+    <p>
+        <span style="color: #f00">
+            @Html.Encode(Model.Message);
+        </span>
+    </p>
+}
+else
+{
+    <p>
+        <span style="color: #00ff21">
+            @Html.Encode(Model.CallBackSettings.ReturnUrl);
+        </span>
+    </p>
+}

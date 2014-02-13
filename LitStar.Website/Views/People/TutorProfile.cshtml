@@ -1,0 +1,403 @@
+﻿@using LitStar.Controllers.ViewModels.People;
+@using LitStar.Core.Security;
+@model TutorView
+@{
+        ViewBag.Title = "LitStar | Tutor Profile";
+}
+<script src="~/Scripts/litstar/litstar.js"></script>
+<div class="semi-block">
+    <h4>
+        <i class="icon-th-large"></i>
+        Tutor Profile
+    </h4>
+    <div class="page-tabs"><!-- fade tabs -->
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tabinfo" data-toggle="tab">
+                        <i class="font-info-sign"></i>
+                        Info
+                    </a>
+                </li>
+                <li>
+                    <a href="#tabsecurity" data-toggle="tab">
+                        <i class="font-lock"></i>Security</a>
+                </li>
+                <li>
+                    <a href="#tabgoals" data-toggle="tab">
+                        <i class="font-road"></i>Goals</a>
+                </li>
+                <li>
+                    <a href="#tabassessments" data-toggle="tab">
+                        <i class="font-edit"></i>Assessments</a>
+                </li>
+                <li>
+                    <a href="#tabpreferences" data-toggle="tab">
+                        <i class="font-cog"></i>Preferences</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane body active fade in" id="tabinfo">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "infoForm" }))
+        {
+                    <div id="divcontainer" class="row-fluid">
+                        <div class="span6">
+                            <div class="block well">
+                                <div class="navbar">
+                                    <div class="navbar-inner">
+                                        <h5>Basic Info</h5>
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <div class="checkbox inline">
+                                        <label class="control-label">
+                                            Is Active?:
+                                        </label>
+                                        <div class="controls">
+                                            @Html.CheckBoxFor(m => m.SelectedTutor.IsActive, new { @class = "yes_no", @id = "isactive"})
+                                        </div>
+                                    </div>
+                                    <div class="checkbox inline">
+                                        <label class="control-label">
+                                            Is Bilingual?:
+                                        </label>
+                                        <div class="controls">
+                                                @Html.CheckBoxFor(m => m.SelectedTutor.IsBillingual, new { @class = "yes_no", @id = "isbillingual"})
+                                        </div>
+                                    </div>
+                                    <div class="checkbox inline">
+                                        <label class="control-label">
+                                            Sex:
+                                        </label>
+                                        <div class="controls">
+                                                @Html.CheckBoxFor(m => m.SelectedTutor.Sex, new { @class = "male_female", @id = "sex"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        First Name:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                            @Html.TextBoxFor(m => m.SelectedTutor.FirstName, new { @class = "required span12", @id = "firstname"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Last Name:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                            @Html.TextBoxFor(m => m.SelectedTutor.LastName, new { @class = "required span12", @id = "lastname"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Email:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Email, new { @class = "required span12", @id = "email"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Address1:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Address1, new { @class = "span12", @id = "address1"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Address2:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Address2, new { @class = "span12", @id = "address2"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        City:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.City, new { @class = "span12", @id = "city"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        State:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.State, new { @class = "span2", @id = "state"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Zip:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Zip, new { @class = "span2", @id = "zip"})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Birthdate:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Birthdate, new { @class = "required datepicker", @id = "birthdate", @Value = Model.SelectedTutor.Birthdate.ToShortDateString()})
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Phone:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Phone, new { @class = "maskPhone", @id = "phone"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span6">
+                            <div class="block well">
+                                <div class="navbar">
+                                    <div class="navbar-inner">
+                                        <h5>Demographics</h5>
+                                    </div>
+                                </div>
+                                <div class="body control-group">
+                                    <label class="control-label">
+                                        Occupation:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.Occupation, new { @class = "span12", @id = "occupation"})
+                                    </div>
+                                </div>
+                                <div class="control-group body">
+                                    <label class="control-label">
+                                        Referred By:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.ReferredBy, new { @class = "span12", @id = "referredby"})
+                                    </div>
+                                </div>
+                                <div class="control-group body">
+                                    <label class="control-label">
+                                        Emergency Contact:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.EmergencyContactName, new { @class = "span12", @id = "emergencycontact"})
+                                    </div>
+                                </div>
+                                <div class="control-group body">
+                                    <label class="control-label">
+                                        Emergency Contact Phone:
+                                    </label>
+                                    <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedTutor.EmergencyContactPhone, new { @class = "maskPhone", @id = "emergencycontactphone"})
+                                    </div>
+                                </div>
+                                <div class="control-group body">
+                                    <label class="control-label">
+                                        Ethnicity:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                            @Html.DropDownListFor(m => m.SelectedTutor.Ethnicity, Model.Ethnicities, " -- Select Ethnicity --", new { @id = "ethnicityddl"})
+                                    </div>
+                                </div>
+                                <div class="control-group body">
+                                    <label class="control-label">
+                                        Education Level:
+                                        <span class="req">*</span>
+                                    </label>
+                                    <div class="controls">
+                                            @Html.DropDownListFor(m => m.SelectedTutor.EducationCompleted, Model.EducationLevels, " -- Select Education Level --", new { @id = "educationlevelddl"})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                    </div>
+                            
+                    <div class="row-fluid">
+                        <div class="form-actions">
+                            <button id="btnSaveLearner" title="Save Student" class="btn btn-small btn-info">
+                                <i class="icon-plus"></i> Save Info
+                            </button>
+                            <a href='@Url.Action("Tutor", "People")' title="Cancel" class="btn btn-small btn-danger">
+                                <i class="icon-remove"></i> Cancel
+                            </a>               
+                        </div>
+                    </div>
+        }
+                </div>
+                <div class="tab-pane body fade" id="tabsecurity">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "securityForm" }))
+                        {
+                            <div id="divSecurityContainer" class="row-fluid">
+                                <div class="span12">
+                                    <div class="block well">
+                                        <div class="navbar">
+                                            <div class="navbar-inner">
+                                                <h5>Security Access Info</h5>
+                                            </div>
+                                        </div>
+                                        <div class="body control-group">
+                                            <label class="control-label">
+                                                Security Access Level:
+                                                <span class="req">*</span>
+                                            </label>
+                                            <div class="controls">
+                                                    @Html.DropDownListFor(m => m.SelectedTutor.Membership.AccessLevel, new SelectList(Model.AccessLevels.List, "Value", "Text"), " -- Select Access Level --", new { @id = "accesslevelddl" })
+                                            </div>
+                                        </div>
+                                        <div class="body control-group">
+                                            <label class="control-label">
+                                                Password:
+                                                <span class="req">*</span>
+                                            </label>
+                                            <div class="controls">
+                                                    @Html.TextBoxFor(m => m.SelectedTutor.Membership.Password, new { @class = "required span12", @id = "password" })
+                                            </div>
+                                        </div>
+                                        <div class="body control-group">
+                                            <label class="control-label">
+                                                Security Question:
+                                                <span class="req">*</span>
+                                            </label>
+                                            <div class="controls">
+                                                    @Html.TextBoxFor(m => m.SelectedTutor.Membership.SecurityQuestion, new { @class = "required span12", @id = "securityquestion" })
+                                            </div>
+                                        </div>
+                                        <div class="body control-group">
+                                            <label class="control-label">
+                                                Security Answer:
+                                                <span class="req">*</span>
+                                            </label>
+                                            <div class="controls">
+                                                @Html.TextBoxFor(m => m.SelectedTutor.Membership.SecurityAnswer, new { @class = "required span12", @id = "securityanswer" })
+                                            </div>
+                                        </div>
+                                        <div class="body control-group">
+                                            <label class="control-label">
+                                                Username:
+                                                <span class="req">*</span>
+                                            </label>
+                                            <div class="controls">
+                                                @Html.TextBoxFor(m => m.SelectedTutor.Membership.Username, new { @class = "required span12", @id = "username" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="form-actions">
+                                <button id="btnSaveSecurity" title="Save Security Info" class="btn btn-small btn-info">
+                                    <i class="icon-plus"></i> Save Info
+                                </button>
+                                <a href='@Url.Action("Tutor", "People")' title="Cancel" class="btn btn-small btn-danger">
+                                    <i class="icon-remove"></i> Cancel
+                                </a>               
+                            </div>
+                         </div>
+                        }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#btnSaveTutor").click(function (e) {
+
+        e.preventDefault();  //prevent default form submit behaviour
+        var tutor = new Tutor();
+        tutor.Birthdate = $("#birthdate").val();
+        tutor.Address1 = $("#address1").val();
+        tutor.Email = $("#email").val();
+        tutor.FirstName = $("#firstname").val();
+        tutor.LastName = $("#lastname").val();
+        tutor.IsActive = $("#isactive").is(":checked");
+        tutor.IsBillingual = $("#isbillingual").is(":checked");
+        tutor.Sex = $("#sex").is(":checked");
+        tutor.Address2 = $("#address2").val();
+        tutor.City = $("#city").val();
+        tutor.State = $("#state").val();
+        tutor.Zip = $("#zip").val();
+        tutor.Phone = $("#phone").val();
+        tutor.Occupation = $("#occupation").val();
+        tutor.ReferredBy = $("#referredby").val();
+        tutor.EmergencyContactName = $("#emergencycontact").val();
+        tutor.EmergencyContactPhone = $("#emergencycontactphone").val();
+        tutor.PlaceOfBirth = $("#placeofbirth").val();
+        tutor.ReasonForTutoring = $("#reasonfortutoring").val();
+        tutor.Ethnicity = $("#ethnicityddl option:selected").val();
+        tutor.EducationCompleted = $("#educationlevelddl option:selected").val();
+        tutor.ID = '@(Model.SelectedTutor.ID)';
+        tutor.UserID = '@(Model.SelectedTutor.UserID)';
+        tutor.AvatarPath = '@(Model.SelectedTutor.AvatarPath)';
+        tutor.AccountID = '@(Model.SelectedTutor.AccountID)';
+        tutor.EnteredBy = '@(Model.SelectedTutor.EnteredBy)';
+        tutor.ChangedBy = '@(Model.SelectedTutor.ChangedBy)';
+        tutor.AccessLevel = $("#accesslevelddl option:selected").val();
+        $.ajax({
+            url: 'http://litstar.localhost/api/Tutor/UpdateTutor',
+            type: 'POST',
+            data: JSON.stringify(tutor),
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                var notice = "<div class='notice closing'><div class='note note-success'><button type='button' class='close'>×</button><strong>Staff Security Info Updated Successfully!!</strong></div></div>";
+                //alert(notice);
+                $("#mainwrapper").before(notice);
+                $('#mainwrapper').effect("highlight", { color: "#7fd658" }, 1000);
+                //alert('yes');
+            },
+            error: function (x, y, z) {
+                //alert(x.status + '\n' + y + '\n' + z);
+            }
+        });
+    });
+
+    $("#btnSaveSecurity").click(function (e) {
+
+        e.preventDefault();  //prevent default form submit behaviour
+        var user = new User();
+        user.AccessLevel = $("#accesslevelddl option:selected").val();
+        user.ID = '@(Model.SelectedTutor.UserID)';
+        user.Password = $("#password").val();
+        user.SecurityAnswer = $("#securityanswer").val();
+        user.SecurityQuestion = $("#securityquestion").val();
+        user.Username = $("#username").val();
+        $.ajax({
+            url: 'http://litstar.localhost/api/Tutor/UpdateTutorSecurity',
+            type: 'POST',
+            data: JSON.stringify(user),
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                var notice = "<div class='notice closing'><div class='note note-success'><button type='button' class='close'>×</button><strong>Staff Security Info Updated Successfully!!</strong></div></div>";
+                //alert(notice);
+                $("#mainwrapper").before(notice);
+                $('#mainwrapper').effect("highlight", { color: "#7fd658" }, 1000);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    });
+
+    $("#avataruploader").pluploadQueue({
+        runtimes: 'html5,html4',
+        url: 'http://litstar.localhost/api/Tutor/UpdateAvatar',
+        browse_button: 'selectavatar',
+        max_file_size: '3mb',
+        unique_names: true,
+        filters: [
+			{ title: "Image files", extensions: "jpg,gif,png" }
+        ]
+    });
+</script>

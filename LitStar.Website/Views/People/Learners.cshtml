@@ -1,0 +1,235 @@
+﻿@using LitStar.Controllers.ViewModels.People;
+@model LearnerView
+@{
+    ViewBag.Title = "LitStar | Learner List";
+}
+<script src="~/Scripts/litstar/litstar.js"></script>
+<h5>
+    <i class="icon-th-large"></i>
+    Learners List
+</h5>
+<div class="block well">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="nav pull-left">
+                <a href="@Url.Action("CreateLearner", "People")" class="btn btn-small btn-success btn-block" title="Add New Student">
+                    <i class="icon-plus"></i> Add New Student
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="table-overflow">
+        <table class="table table-striped table-bordered table-block align-center">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Actions</th>
+                </tr>
+                @if (Model.LearnerList != null && Model.LearnerList.Count() > 0)
+                {
+                    foreach (var item in Model.LearnerList)
+                    { 
+                        <tr>
+                            <td>
+                                <img src="@item.AvatarPath" alt="@item.FirstName" style="height: 50px; width: 50px;" />
+                            </td>
+                            <td>
+                                @item.FirstName
+                            </td>
+                            <td>
+                                @item.LastName
+                            </td>
+                            <td>
+                                @item.Email
+                            </td>
+                            <td>
+                                @item.Phone
+                            </td>
+                            <td style="width: 75px;">
+                                <a id="lbViewLearner_@item.ID" itemid="@item.ID" href='@Url.Action("LearnerProfile", "People", new {id = @Html.Raw(@item.ID) })' title="View Student" class="viewstaff btn btn-small btn-info btn-block">
+                                <i class="icon-zoom-in"></i> View
+                            </a>
+                                <button id="lbDeleteLearner_@item.ID" itemid="@item.ID" title="Delete Student" class="deletelearner btn btn-small btn-danger btn-block confirm">
+                                <i class="icon-remove"></i> Delete
+                            </button>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6">
+                            <span>
+                                <h6>No Records Found</h6>
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Dialog content -->
+            <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h5 id="myModalLabel">Create New User</h5>
+                </div>
+                <div class="modal-body">
+                <form class="form-horizontal">
+                    <div id="divSecurityContainer" class="row-fluid">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "securityForm" }))
+        {
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    First Name:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedLearner.FirstName, new { @class = "required span12", @id = "firstname"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Last Name:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedLearner.LastName, new { @class = "required span12", @id = "lastname"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Email:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedLearner.Email, new { @class = "required span12", @id = "email"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Birthdate:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedLearner.Birthdate, new { @class = "required datepicker", @id = "birthdate"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Access Level:
+                                    <span class="req">*</span>
+                                    <a href="#" role="button" class=" popover-test" title="Security Access Levels" data-content="Here will be a description of the security levels once they've been defined.">
+                                        <img src="/images/icons/color-16/question.png" alt="" />
+                                    </a>
+                                </label>
+                                <div class="controls">
+                                        @Html.DropDownListFor(m => m.SelectedLearner.Membership.AccessLevel, new SelectList(Model.AccessLevels.List, "Value", "Text"), " -- Select Access Level --", new { @id = "accesslevelddl"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Password:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedLearner.Membership.Password, new { @class = "required span12", @id = "password"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Question:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedLearner.Membership.SecurityQuestion, new { @class = "required span12", @id = "securityquestion"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Answer:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedLearner.Membership.SecurityAnswer, new { @class = "required span12", @id = "securityanswer"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions modal-footer">
+                            <button id="btnSaveSecurity" title="Save Security Info" class="btn btn-small btn-info">
+                                <i class="icon-plus"></i> Save Info
+                            </button>
+                            <a href='' title="Cancel" data-dismiss="modal" class="btn btn-small btn-danger">
+                                <i class="icon-remove"></i> Cancel
+                            </a>               
+                        </div>
+                        }
+                    </div>
+                    </form>
+                </div>
+            </div>
+            <!-- /dialog content -->
+
+<script type="text/javascript">
+
+    $("#btnSaveSecurity").click(function (e) {
+
+        e.preventDefault();  //prevent default form submit behaviour
+        var _user = new User();
+        _user.AccessLevel = $("#accesslevelddl option:selected").val();
+        _user.Password = $("#password").val();
+        _user.SecurityAnswer = $("#securityanswer").val();
+        _user.SecurityQuestion = $("#securityquestion").val();
+        _user.Username = $("#email").val();
+
+        var _learner = new Learner();
+        _learner.Birthdate = $("#birthdate").val();
+        _learner.Email = $("#email").val();
+        _learner.FirstName = $("#firstname").val();
+        _learner.LastName = $("#lastname").val();
+
+
+        $.ajax({
+            url: 'http://litstar.localhost/api/Learner/CreateLearner',
+            type: 'POST',
+            data: JSON.stringify({ User: _user, Learner: _learner }),
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                window.location = data.split(':')[2];
+                var notice = "<div class='notice closing'><div class='note note-success'><button type='button' class='close'>×</button><strong>Staff Successfully Created!!</strong></div></div>";
+                //alert(notice);
+                $("#mainwrapper").before(notice);
+                $('#mainwrapper').effect("highlight", { color: "#7fd658" }, 1000);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    });
+
+</script>

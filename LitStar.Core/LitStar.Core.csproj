@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1F9B5B93-3BB1-46BD-851F-EA60AC29AE59}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LitStar.Core</RootNamespace>
+    <AssemblyName>LitStar.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Gallio, Version=3.3.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\Gallio.dll</HintPath>
+    </Reference>
+    <Reference Include="Gallio40, Version=3.3.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\Gallio40.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit, Version=3.3.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
+    </Reference>
+    <Reference Include="MbUnit40, Version=3.3.0.0, Culture=neutral, PublicKeyToken=eb9cfa67ee6ab36e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit40.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Domain\AccessLevels.cs" />
+    <Compile Include="Domain\Account\Account.cs" />
+    <Compile Include="Domain\Goal\GoalStatus.cs" />
+    <Compile Include="Domain\Goal\GoalType.cs" />
+    <Compile Include="Domain\Goal\IGoal.cs" />
+    <Compile Include="Domain\Goal\IGoalComment.cs" />
+    <Compile Include="Domain\Instruction\ILearningSession.cs" />
+    <Compile Include="Domain\Instruction\ILearningSessionRepository.cs" />
+    <Compile Include="Domain\Instruction\LearningSession.cs" />
+    <Compile Include="Domain\Preference\ILanguage.cs" />
+    <Compile Include="Domain\Preference\ILanguageRepository.cs" />
+    <Compile Include="Domain\Preference\ILearningSessionAvailability.cs" />
+    <Compile Include="Domain\Preference\ILearningSessionAvailabilityRepository.cs" />
+    <Compile Include="Domain\Preference\ILocation.cs" />
+    <Compile Include="Domain\Preference\ILocationRepository.cs" />
+    <Compile Include="Domain\Preference\IUserLanguage.cs" />
+    <Compile Include="Domain\Preference\IUserLanguageRepository.cs" />
+    <Compile Include="Domain\Preference\IUserLocation.cs" />
+    <Compile Include="Domain\Preference\IUserLocationRepository.cs" />
+    <Compile Include="Domain\Preference\IUserPreference.cs" />
+    <Compile Include="Domain\Preference\IUserPreferenceRepository.cs" />
+    <Compile Include="Domain\Preference\Language.cs" />
+    <Compile Include="Domain\Preference\LearningSessionAvailability.cs" />
+    <Compile Include="Domain\Preference\Location.cs" />
+    <Compile Include="Domain\Preference\UserLanguage.cs" />
+    <Compile Include="Domain\Preference\UserLocation.cs" />
+    <Compile Include="Domain\Preference\UserPreference.cs" />
+    <Compile Include="Domain\User\EducationLevel.cs" />
+    <Compile Include="Domain\User\EmailValidationSpecification.cs" />
+    <Compile Include="Domain\User\EthnicityType.cs" />
+    <Compile Include="Domain\User\IDocument.cs" />
+    <Compile Include="Domain\User\IDonor.cs" />
+    <Compile Include="Domain\User\ILearnerRepository.cs" />
+    <Compile Include="Domain\User\IStaffRepository.cs" />
+    <Compile Include="Domain\User\ITutor.cs" />
+    <Compile Include="Domain\User\ITutorRepository.cs" />
+    <Compile Include="Domain\User\IUserRepository.cs" />
+    <Compile Include="Domain\User\Languages.cs" />
+    <Compile Include="Domain\User\PayFrequency.cs" />
+    <Compile Include="Domain\User\Tutor.cs" />
+    <Compile Include="Domain\User\User.cs" />
+    <Compile Include="Domain\User\UserBusinessRules.cs" />
+    <Compile Include="Domain\User\UserFactory.cs" />
+    <Compile Include="Domain\User\UserLanguage.cs" />
+    <Compile Include="Domain\User\UserType.cs" />
+    <Compile Include="Domain\User\IUser.cs" />
+    <Compile Include="Domain\User\IBaseUserRepository.cs" />
+    <Compile Include="Domain\User\Learner.cs" />
+    <Compile Include="Domain\User\Staff.cs" />
+    <Compile Include="Domain\User\ILearner.cs" />
+    <Compile Include="Domain\User\IStaff.cs" />
+    <Compile Include="Domain\Account\AccountType.cs" />
+    <Compile Include="Domain\Account\IAccount.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResourceStrings.cs" />
+    <Compile Include="Security\ILitStarSecurityContext.cs" />
+    <Compile Include="Security\SecurityContextManager.cs" />
+    <Compile Include="Security\SecurityRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LitStar.Infrastructure\LitStar.Infrastructure.csproj">
+      <Project>{38124e93-2af5-4499-ac3e-ab4f98135398}</Project>
+      <Name>LitStar.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,170 @@
+﻿@using LitStar.Core.Security
+@model LitStar.Controllers.ViewModels.SideBarView
+<script src="/Scripts/litstar/sidebar.js"></script>
+@if (1==1)
+{ 
+    <div class="sidebar">
+
+        <!-- Sidebar user -->
+        <div class="sidebar-user">
+            <a href="#" title=""><img src="@Model.ProfileImagePath" height="50px" width="50px" style="height: 50px; width: 50px;" alt="" /><strong>@Model.SelectedProfileName</strong><span></span></a>
+        </div>
+        <!-- /sidebar user -->
+
+        <ul class="navigation"><!-- standard nav -->
+            <li id="nav-dashboard">
+                <a href="@Url.Action("Index", "Home")" title=""><span class="menu-dashboard"></span>Dashboard</a>
+            </li>
+            <li id="nav-people">
+                <a href="#" title="" class="expand"><span class="menu-forms"></span>People<strong>3</strong></a>
+                <ul>
+                    <li id="subnav-students">
+                        <a href="/People/Learners" title="">Learners</a>
+                    </li>
+                    <li id="subnav-instructors">
+                        <a href="/People/TutorList" title="">Tutors</a>
+                    </li>
+                    @*<li id="subnav-donors">
+                        <a href="#" title="">Donors</a>
+                    </li>*@
+                    <li id="subnav-staff">
+                        <a href="/People/Staff" title="">Staff</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="expand" title=""><span class="menu-icons"></span>Goals<strong>2</strong></a>
+                <ul>
+                    <li id="subnav-goal-overview">
+                        <a href="/Goals/Overview" title="">Overview</a>
+                    </li>
+                    <li id="subnav-goal-manage">
+                        <a href="/Goals/Manage" title="">Manage</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="active">
+                <a href="#" title=""><span class="menu-messages"></span>Comments</a>
+            </li>
+            <li>
+                <a href="#" title=""><span class="menu-tables"></span>Locations</a>
+            </li>
+            <li>
+                <a href="#" title="" class="expand"><span class="menu-errors"></span>Blog</a>
+            </li>
+            @*<li>
+                <a href="#" title=""><span class="menu-typo"></span>Forum</a>
+            </li>*@
+            <li>
+                <a href="#" title=""><span class="menu-calendar"></span>Schedule</a>
+            </li>
+            <li>
+                <a href="#" title=""><span class="menu-files"></span>Documents</a>
+            </li>
+            <li>
+                <a href="#" title=""><span class="menu-charts"></span>Reports</a>
+            </li>
+        </ul><!-- /standard nav -->
+
+        <div class="separator-doubled"></div>
+        
+        <!-- Action buttons -->
+        @*<div class="block buttons">
+            <a href="#" title="" class="action-button blue">Action button</a>
+            <a href="#" title="" class="action-button green" style="margin-top: 6px;">Action button</a>
+            <a href="#" title="" class="action-button greyish" style="margin-top: 6px;">Action button</a>
+            <a href="#" title="" class="action-button red" style="margin-top: 6px;">Action button</a>
+        </div>*@
+        <!-- /action buttons -->
+
+        @*<div class="separator-doubled"></div>*@
+        
+        <!-- Text stats -->
+        @*<ul class="text-stats block">
+            <li>1248<span>clicks</span></li>
+            <li>2548<span>visits</span></li>
+            <li>$603<span>balance</span></li>
+        </ul>*@
+        <!-- /text stats -->
+
+        @*<div class="separator-doubled"></div>*@
+        
+        <!-- Contact list -->
+        @*<ul class="user-list block">
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Eugene Kopyov <span>(5)</span></strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_away"></span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#" title="">
+                    <img src="images/live/face2.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Lucy Wilkinson <span>(12)</span></strong>
+                        <i>Team leader</i>
+                    </span>
+                    <span class="status_off"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face3.png" alt="" />
+                    <span class="contact-name">
+                        <strong>John Dow</strong>
+                        <i>PHP developer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face4.png" alt="" />
+                    <span class="contact-name">
+                        <strong>The Incredible</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face5.png" alt="" />
+                    <span class="contact-name">
+                        <strong>The wazzup guy</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+            <li>
+                <a href="#" title="">
+                    <img src="images/live/face6.png" alt="" />
+                    <span class="contact-name">
+                        <strong>Viktor Fedorovich</strong>
+                        <i>web &amp; ui designer</i>
+                    </span>
+                    <span class="status_available"></span>
+                </a>
+            </li>
+        </ul>*@
+        <!-- /contact list -->
+
+        @*<div class="separator-doubled"></div>*@
+        
+        <!-- Date picker -->
+        @*<div class="block">
+            <div class="inlinepicker"></div>
+        </div>*@
+        <!-- /date picker -->
+
+    </div>
+    
+    <script type="text/javascript">
+        setCurrentMenuItem("@Model.SelectedMenuItem", "@Model.SelectedSubMenuItem");
+    </script>
+}

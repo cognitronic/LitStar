@@ -1,0 +1,49 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>LitStar</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+
+        @Scripts.Render("~/bundles/jquery")
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script type="text/javascript" src="/Scripts/plugins/tables/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="/Scripts/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="/Scripts/plugins/bootstrap/bootstrap-bootbox.min.js"></script>
+        <script type="text/javascript" src="/Scripts/plugins/ui/jquery.collapsible.min.js"></script>
+<script type="text/javascript" src="/Scripts/plugins/ui/jquery.timepicker.min.js"></script>
+<script type="text/javascript" src="/Scripts/plugins/ui/jquery.jgrowl.min.js"></script>
+        <script src="~/Scripts/plugins/forms/jquery.uniform.min.js"></script>
+        <script src="~/Scripts/plugins/forms/jquery.select2.min.js"></script>
+        <script src="~/Scripts/plugins/forms/jquery.maskedinput.min.js"></script>
+        <script src="~/Scripts/plugins/forms/jquery.inputlimiter.min.js"></script>
+        <script src="~/Scripts/plugins/forms/jquery.tagsinput.min.js"></script>
+        <script src="~/Scripts/plugins/charts/jquery.sparkline.min.js"></script>
+<script type="text/javascript" src="/Scripts/plugins/ui/jquery.pie.chart.js"></script>
+<script type="text/javascript" src="/Scripts/plugins/ui/jquery.fullcalendar.min.js"></script>
+        <script src="~/Scripts/plugins/charts/excanvas.min.js"></script>
+        @Scripts.Render("~/bundles/LitStar")
+        
+        
+        <script src="~/Scripts/plugins/charts/jquery.flot.fillbetween.js"></script>
+        <script src="~/Scripts/plugins/charts/jquery.flot.orderBars.js"></script>
+        <script src="~/Scripts/plugins/charts/jquery.flot.pie.js"></script>
+        <script src="~/Scripts/plugins/charts/jquery.flot.threshold.js"></script>
+        @RenderSection("scripts", required: false)
+    </head>
+    <body>
+        @RenderBody()
+
+
+
+</body>
+</html>

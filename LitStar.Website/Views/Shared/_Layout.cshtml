@@ -1,0 +1,42 @@
+﻿@model LitStar.Controllers.ViewModels.IBaseView
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        @Styles.Render("~/Content/css")
+        <!--[if IE]> <link href="css/ie.css" rel="stylesheet" type="text/css"> <![endif]-->
+        @Scripts.Render("~/bundles/jquery")
+        @*<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>*@
+        @Scripts.Render("~/bundles/jqueryval")
+        @Scripts.Render("~/bundles/litstar")
+        @Scripts.Render("~/bundles/litstar2")
+        @Scripts.Render("~/bundles/modernizr")
+        @RenderSection("scripts", required: false)
+        <title>LitStar</title>
+    </head>
+    <body>
+        <section id="topnav">
+            @Html.Action("Menu", "TopNavBar")
+        </section>
+        <div id="mainwrapper" class="wrapper">
+
+	        <!-- Left sidebar -->
+            <section id="sidebar">
+                @Html.Action("Navigation", "Sidebar", new { selectedItem = @Model.SideBar.SelectedMenuItem, selectedSubItem = @Model.SideBar.SelectedSubMenuItem })
+            </section>
+            <!-- /left sidebar -->
+            <!-- Main content -->
+            <div class="content">
+                <div id="body">
+                    @RenderSection("featured", required: false)
+                    <section class="content-wrapper main-content clear-fix" style=" margin-top: 57px;">
+                        @RenderBody()
+                    </section>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

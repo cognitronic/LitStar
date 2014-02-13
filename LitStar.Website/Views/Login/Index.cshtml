@@ -1,0 +1,73 @@
+﻿@model LitStar.Controllers.ViewModels.UserAccount.UserAccountView
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Login.cshtml";
+}
+
+<!-- Main wrapper -->
+<div class="login-wrapper">
+
+    <div class="login">
+
+        <a href="#" title="" class="login-logo"><img src="/images/login-logo.png" alt="" /></a>
+
+        <!-- Login block -->
+        <div class="well">
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <h6><i class="font-user"></i>Login page</h6>
+                    <div class="nav pull-right">
+                        <a href="#" class="dropdown-toggle just-icon" data-toggle="dropdown"><i class="font-cog"></i></a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#"><i class="font-plus"></i>Register</a></li>
+                            <li><a href="#"><i class="font-refresh"></i>Recover password</a></li>
+                            <li><a href="#"><i class="font-cog"></i>Settings</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm("Authenticate", "Login", FormMethod.Post, new { email = ViewBag.UserName, password = "password", ReturnUrl = "/Home/Index", @class = "row-fluid"}))
+            {
+            @*<form action="index.html" class="row-fluid">*@
+                <div class="control-group">
+                    @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.TextBoxFor(m => m.Email, new { @class = "span12", id = "regular", placeholder = "username" })
+                    </div>
+                @Html.ValidationMessageFor(m => m.Email)
+                    
+                </div>
+                
+                <div class="control-group">
+                   @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                    <div class="controls">
+                        @Html.PasswordFor(m => m.Password, new { @class = "span12", id = "pass", placeholder = "password" })
+                    </div>
+                @Html.ValidationMessageFor(m => m.Password)
+                </div>
+
+                @*<div class="control-group">
+                    <div class="controls"><label class="checkbox inline"><input type="checkbox" name="checkbox1" class="style" value="" checked="checked">Remember me</label></div>
+                </div>*@
+                if (@Model.HasIssue)
+                { 
+                 <div class="note note-danger">
+                     <button type="button" class="close">x</button>
+                     @Model.Message
+                 </div>   
+                }
+
+                <div class="login-btn">
+                    
+                    <input type="submit" value="Login" class="btn btn-info btn-block btn-large" />
+
+                </div>
+            @*</form>*@
+            }
+        </div>
+        <!-- /login block -->
+
+    </div>
+
+</div>
+<!-- /main wrapper -->

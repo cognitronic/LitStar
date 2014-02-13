@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F523341B-45EE-488F-9AA4-C4E9D1D45D04}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LitStar.Repository.NHibernate</RootNamespace>
+    <AssemblyName>LitStar.Repository.NHibernate</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="Mappings\AccountMap.cs" />
+    <Compile Include="Mappings\LanguageMap.cs" />
+    <Compile Include="Mappings\LearnerMap.cs" />
+    <Compile Include="Mappings\LearningSessionAvailabilityMap.cs" />
+    <Compile Include="Mappings\LearningSessionMap.cs" />
+    <Compile Include="Mappings\LocationMap.cs" />
+    <Compile Include="Mappings\StaffMap.cs" />
+    <Compile Include="Mappings\TutorMap.cs" />
+    <Compile Include="Mappings\UserLanguageMap.cs" />
+    <Compile Include="Mappings\UserLocationMap.cs" />
+    <Compile Include="Mappings\UserMap.cs" />
+    <Compile Include="Mappings\UserPreferenceMap.cs" />
+    <Compile Include="NHibernateContractResolver.cs" />
+    <Compile Include="NHUnitOfWork.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\LanguageRepository.cs" />
+    <Compile Include="Repositories\LearnerRepository.cs" />
+    <Compile Include="Repositories\LearningSessionAvailabilityRepository.cs" />
+    <Compile Include="Repositories\LearningSessionRepository.cs" />
+    <Compile Include="Repositories\LocationRepository.cs" />
+    <Compile Include="Repositories\StaffRepository.cs" />
+    <Compile Include="Repositories\TutorRepository.cs" />
+    <Compile Include="Repositories\UserLanguageRepository.cs" />
+    <Compile Include="Repositories\UserLocationRepository.cs" />
+    <Compile Include="Repositories\UserPreferenceRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="SessionFactory.cs" />
+    <Compile Include="SessionStorage\HttpSessionContainer.cs" />
+    <Compile Include="SessionStorage\ISessionStorageContainer.cs" />
+    <Compile Include="SessionStorage\SessionStorageFactory.cs" />
+    <Compile Include="SessionStorage\ThreadSessionStorageContainer.cs" />
+    <Compile Include="QueryTranslator.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LitStar.Core\LitStar.Core.csproj">
+      <Project>{1f9b5b93-3bb1-46bd-851f-ea60ac29ae59}</Project>
+      <Name>LitStar.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LitStar.Infrastructure\LitStar.Infrastructure.csproj">
+      <Project>{38124e93-2af5-4499-ac3e-ab4f98135398}</Project>
+      <Name>LitStar.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

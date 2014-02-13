@@ -1,0 +1,293 @@
+﻿@using LitStar.Controllers.ViewModels.People;
+@using LitStar.Core.Security;
+@model StaffView
+@{
+        ViewBag.Title = "LitStar | Staff Profile";
+}
+<script src="~/Scripts/litstar/litstar.js"></script>
+<div class="semi-block">
+    <h5>
+        <i class="icon-th-large"></i>
+        Staff Profile
+    </h5>
+    <div class="page-tabs"><!-- fade tabs -->
+        <div class="tabbable">
+            <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#tabinfo" data-toggle="tab">
+                        <i class="icon-info-sign"></i>
+                        Staff Info
+                    </a>
+                </li>
+                <li>
+                    <a href="#tabsecurity" data-toggle="tab">
+                        <i class="icon-lock"></i>Security</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active fade in" id="tabinfo">
+                    <div id="divcontainer" class="row-fluid">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "infoForm" }))
+        {
+                        <div class="control-group clearfix">
+                            <div class="checkbox inline">
+                                <label class="control-label">
+                                    Is Active?:
+                                </label>
+                                <div class="controls">
+                                    @Html.CheckBoxFor(m => m.SelectedStaff.IsActive, new { @class = "yes_no", @id = "isactive"})
+                                </div>
+                            </div>
+                            <div class="checkbox inline">
+                                <label class="control-label">
+                                    Is Manager?:
+                                </label>
+                                <div class="controls">
+                                        @Html.CheckBoxFor(m => m.SelectedStaff.IsManager, new { @class = "yes_no", @id = "ismanager"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    First Name:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedStaff.FirstName, new { @class = "required span12", @id = "firstname"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Last Name:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedStaff.LastName, new { @class = "required span12", @id = "lastname"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Title:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Title, new { @class = "required span12", @id = "title"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Email:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Email, new { @class = "required span12", @id = "email"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span6">
+                                <label class="control-label">
+                                    Hire Date:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    <div class="date-trigger">
+                                        @Html.TextBoxFor(m => m.SelectedStaff.HireDate, new { @class = "required datepicker", @id = "hiredate", @Value = Model.SelectedStaff.HireDate.ToShortDateString()})
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span6">
+                                <label class="control-label">
+                                    Birthdate:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Birthdate, new { @class = "required datepicker", @id = "birthdate", @Value = Model.SelectedStaff.Birthdate.ToShortDateString()})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span6">
+                                <label class="control-label">
+                                    Manager:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.DropDownListFor(m => m.SelectedStaff.ManagerID, new SelectList(Model.Managers.List, "Value", "Text"), " -- Select Manager --", new { @id = "managerddl"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span6">
+                                <label class="control-label">
+                                    Phone:
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Phone, new { @class = "maskPhone", @id = "phone"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button id="btnSaveStaff" title="Save Staff" class="btn btn-small btn-info">
+                                <i class="icon-plus"></i> Save Info
+                            </button>
+                            <a href='@Url.Action("Staff", "People")' title="Cancel" class="btn btn-small btn-danger">
+                                <i class="icon-remove"></i> Cancel
+                            </a>               
+                        </div>
+                        }
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="tabsecurity">
+                    <div id="divSecurityContainer" class="row-fluid">
+                        @using (Html.BeginForm(null, null, FormMethod.Post, new { @id = "securityForm" }))
+        {
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Access Level:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.DropDownListFor(m => m.SelectedStaff.Membership.AccessLevel, new SelectList(Model.AccessLevels.List, "Value", "Text"), " -- Select Access Level --", new { @id = "accesslevelddl"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Password:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedStaff.Membership.Password, new { @class = "required span12", @id = "password"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Question:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                        @Html.TextBoxFor(m => m.SelectedStaff.Membership.SecurityQuestion, new { @class = "required span12", @id = "securityquestion"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Security Answer:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Membership.SecurityAnswer, new { @class = "required span12", @id = "securityanswer"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group clearfix">
+                            <div class="span12">
+                                <label class="control-label">
+                                    Username:
+                                    <span class="req">*</span>
+                                </label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(m => m.SelectedStaff.Membership.Username, new { @class = "required span12", @id = "username"})
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button id="btnSaveSecurity" title="Save Security Info" class="btn btn-small btn-info">
+                                <i class="icon-plus"></i> Save Info
+                            </button>
+                            <a href='@Url.Action("Staff", "People")' title="Cancel" class="btn btn-small btn-danger">
+                                <i class="icon-remove"></i> Cancel
+                            </a>               
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+
+    $("#btnSaveStaff").click(function (e) {
+
+        e.preventDefault();  //prevent default form submit behaviour
+        var staff = new Staff();
+        staff.Birthdate = $("#birthdate").val();
+        staff.HireDate = $("#hiredate").val();
+        staff.Email = $("#email").val();
+        staff.FirstName = $("#firstname").val();
+        staff.LastName = $("#lastname").val();
+        staff.IsActive = $("#isactive").is(":checked");
+        staff.IsManager = $("#ismanager").is(":checked");
+        staff.Title = $("#title").val();
+        staff.Phone = $("#phone").val();
+        staff.ManagerID = $("#managerddl option:selected").val();
+        staff.ID = '@(Model.SelectedStaff.ID)';
+        staff.UserID = '@(Model.SelectedStaff.UserID)';
+        staff.AvatarPath = '@(Model.SelectedStaff.AvatarPath)';
+        staff.AccountID = '@(Model.SelectedStaff.AccountID)';
+        staff.EnteredBy = '@(Model.SelectedStaff.EnteredBy)';
+        staff.ChangedBy = '@(Model.SelectedStaff.ChangedBy)';
+        staff.AccessLevel = $("#accesslevelddl option:selected").val();
+        $.ajax({
+            url: 'http://litstar.localhost/api/Staff/UpdateStaff',
+            type: 'POST',
+            data: JSON.stringify(staff),
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                var notice = "<div class='notice closing'><div class='note note-success'><button type='button' class='close'>×</button><strong>Staff Security Info Updated Successfully!!</strong></div></div>";
+                //alert(notice);
+                $("#mainwrapper").before(notice);
+                $('#mainwrapper').effect("highlight", { color: "#7fd658" }, 1000);
+                //alert('yes');
+            },
+            error: function (x, y, z) {
+                //alert(x.status + '\n' + y + '\n' + z);
+            }
+        });
+    });
+
+    $("#btnSaveSecurity").click(function (e) {
+
+        e.preventDefault();  //prevent default form submit behaviour
+        var user = new User();
+        user.AccessLevel = $("#accesslevelddl option:selected").val();
+        user.ID = '@(Model.SelectedStaff.UserID)';
+        user.Password = $("#password").val();
+        user.SecurityAnswer = $("#securityanswer").val();
+        user.SecurityQuestion = $("#securityquestion").val();
+        user.Username = $("#username").val();
+        $.ajax({
+            url: 'http://litstar.localhost/api/Staff/UpdateStaffSecurity',
+            type: 'POST',
+            data: JSON.stringify(user),
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (data) {
+                var notice = "<div class='notice closing'><div class='note note-success'><button type='button' class='close'>×</button><strong>Staff Security Info Updated Successfully!!</strong></div></div>";
+                //alert(notice);
+                $("#mainwrapper").before(notice);
+                $('#mainwrapper').effect("highlight", { color: "#7fd658" }, 1000);
+            },
+            error: function (x, y, z) {
+                alert(x + '\n' + y + '\n' + z);
+            }
+        });
+    });
+</script>
